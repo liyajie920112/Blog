@@ -1,0 +1,14 @@
+.markdown {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    padding-top: 60px;
+  }
+  p {
+    &.image {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

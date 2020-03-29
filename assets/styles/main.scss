@@ -1,0 +1,84 @@
+.lyj-container {
+}
+
+html {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.lyj-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  box-shadow: 0 1px 6px 0 rgba(151, 102, 102, 0.6);
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  background-color: #fff;
+  .logo {
+    float: left;
+    height: 40px;
+    color: #ddd;
+    font-size: 18px;
+    font-weight: 700;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+  .header-menu {
+    color: #ddd;
+    height: 100%;
+    font-size: 16px;
+    .menu {
+      display: inline-block;
+      height: 100%;
+      padding: 0 10px;
+      min-width: 60px;
+      line-height: 50px;
+      text-align: center;
+      cursor: pointer;
+      &:hover {
+        background-color: #ddd;
+        color: #fff;
+      }
+    }
+  }
+}
+.lyj-side {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  z-index: 50;
+  border-right: 1px solid #eaecef;
+  overflow-y: auto;
+}
+.lyj-content {
+  margin-left: 320px;
+  padding-top: 60px;
+}
