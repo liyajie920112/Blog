@@ -23,8 +23,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'ant-design-vue/lib/icon/style/css',
-    'ant-design-vue/lib/pagination/style/css',
+    'ant-design-vue/dist/antd.min.css',
     '@/assets/styles/index.scss'],
   /*
   ** Plugins to load before mounting the App
@@ -55,8 +54,30 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/auth'
   ],
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
+          user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
+          // logout: { url: '/api/auth/logout', method: 'post' },
+        },
+        tokenType: 'bearer',
+        autoFetchUser: true
+        // tokenRequired: true,
+      }
+    },
+    token: {
+      prefix: '_token.'
+    },
+    redirect: {
+      login: '/admin/login'
+    },
+    plugins: ['@/plugins/auth']
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

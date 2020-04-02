@@ -21,11 +21,17 @@
     }
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.9.0",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "ant-design-vue": "^1.4.12",
     "cross-env": "^5.2.0",
+    "crypto-js": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.6.2",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^8.0.8",
+    "lowdb": "^1.0.0",
     "marked": "^0.8.2",
     "nuxt": "^2.0.0",
     "prismjs": "^1.19.0"

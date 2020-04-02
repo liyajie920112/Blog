@@ -1,0 +1,10 @@
+{
+  "blogs": [],
+  "users": [
+    {
+      "username": "admin",
+      "password": "liyajie920112",
+      "nickName": "LiYajie"
+    }
+  ]
+}

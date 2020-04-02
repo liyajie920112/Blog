@@ -1,6 +1,4 @@
 import Vue from 'vue'
-import Icon from 'ant-design-vue/lib/icon'
-import Pagination from 'ant-design-vue/lib/pagination'
+import Antd from 'ant-design-vue'
 
-Vue.use(Icon)
-Vue.use(Pagination)
+Vue.use(Antd)

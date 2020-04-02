@@ -1,4 +1,4 @@
-export const apiBlogList = '/api/blog/list2'
+export const apiBlogList = '/api/blog/list'
 export const apiBlogByTitle = '/api/blog/title'
 export class Api {
   constructor(axios) {

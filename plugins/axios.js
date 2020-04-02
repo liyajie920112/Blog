@@ -4,6 +4,11 @@ export default function({ $axios, redirect }, inject) {
     headers: {}
   })
 
+  server.interceptors.request.use((config) => {
+    console.log('123')
+    return config
+  })
+
   server.interceptors.response.use(
     (response) => {
       const res = response.data
@@ -20,7 +25,7 @@ export default function({ $axios, redirect }, inject) {
   )
 
   // Set baseURL to something different
-  server.setBaseURL('http://localhost:3000')
+  server.setBaseURL('http://localhost:3003')
 
   // Inject to context as $api
   inject('request', server)
