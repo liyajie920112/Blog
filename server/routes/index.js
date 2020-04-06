@@ -11,12 +11,13 @@ router.post('/api/auth/login', (ctx) => {
   console.log('user', user)
   if (user) {
     ctx.body = {
+      code: 200,
       token: getToken(user)
     }
   } else {
-    ctx.status = 444
     ctx.body = {
-      msg: '用户名或密码错误'
+      code: -1,
+      error: '用户名或密码错误'
     }
   }
 })

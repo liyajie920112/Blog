@@ -31,13 +31,12 @@ export default {
   },
   methods: {
     async onLogin() {
-      const res = await this.$auth.loginWith('local', {
-        data: this.loginForm
-      })
+      // console.log('1111', this.$auth.login())
+      const res = await this.$auth.login(this.loginForm)
       console.log('user', res)
-      if (!res.data.token) {
-        this.$message.error(res.data.msg)
-      }
+      // if (!res.data.token) {
+      //   // this.$message.error(res.data.error)
+      // }
     }
   }
 }

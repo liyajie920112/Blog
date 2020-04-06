@@ -1,19 +1,24 @@
-export default function({ $axios, redirect }, inject) {
+import { message } from 'ant-design-vue'
+import { Api } from '../api/index'
+export default function(ctx, inject) {
+  const { $axios } = ctx
   // Create a custom axios instance
   const server = $axios.create({
     headers: {}
-  })
-
-  server.interceptors.request.use((config) => {
-    console.log('123')
-    return config
   })
 
   server.interceptors.response.use(
     (response) => {
       const res = response.data
       if (res.code !== 200) {
-        return Promise.reject(new Error(res.message || res.msg || 'Error'))
+        if (!process.server) {
+          message.error(res.error)
+        }
+        return {
+          ...res,
+          data: ''
+        }
+        // return Promise.reject(res.message || res.msg || res.error || res.err || 'Error')
       } else {
         // 成功的时候
         return res
@@ -27,6 +32,8 @@ export default function({ $axios, redirect }, inject) {
   // Set baseURL to something different
   server.setBaseURL('http://localhost:3003')
 
-  // Inject to context as $api
   inject('request', server)
+  // Inject to context as $api
+  const api = new Api(server)
+  inject('api', api)
 }

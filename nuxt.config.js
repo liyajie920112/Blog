@@ -33,9 +33,8 @@ module.exports = {
       src: '@/plugins/prism',
       ssr: false
     },
-    '@/plugins/antd-ui',
     '@/plugins/axios',
-    '@/plugins/api',
+    '@/plugins/antd-ui',
     '@/plugins/router'
   ],
   /*
@@ -55,28 +54,23 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/auth'
+    ['@/modules/auth', { namespace: 'auth' }]
   ],
   auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
-          user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
-          // logout: { url: '/api/auth/logout', method: 'post' },
-        },
-        tokenType: 'bearer',
-        autoFetchUser: true
-        // tokenRequired: true,
+    api: {
+      login: {
+        url: '/api/auth/login',
+        method: 'post',
+        tokenProp: 'token'
       }
     },
-    token: {
-      prefix: '_token.'
+    cookie: {
+      prefix: '_lyj_',
+      options: {
+        expires: 1 // 一天后过期, 如果不设置该选项, 则默认关闭浏览器cookie失效
+      }
     },
-    redirect: {
-      login: '/admin/login'
-    },
-    plugins: ['@/plugins/auth']
+    debug: true
   },
   /*
   ** Axios module configuration
