@@ -34,7 +34,7 @@
     "koa-router": "^8.0.8",
     "lowdb": "^1.0.0",
     "marked": "^0.8.2",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "prismjs": "^1.19.0"
   },
   "devDependencies": {
